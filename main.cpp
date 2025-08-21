@@ -16,6 +16,7 @@ class RandomSum {
             for (int i = 0; i < 100; i++) {
                 sum += rand() % 1000;
             }
+            std::println("Thread #{}: sum = {}", threadId, sum);
         }
         int Sum() const {
             return sum;
@@ -75,11 +76,6 @@ int main() {
     threadSum10.join();
 
     RandomSum sums[10] = {sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10};
-
-    for(int i = 0; i < 10; i++) {
-        int current = sums[i].Sum();
-        std::println("sum{} = {}", i + 1, current);
-    };
     std::sort(sums, sums + 10, [](const RandomSum& a, const RandomSum& b) {
         return a.Sum() > b.Sum();
     });
