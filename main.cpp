@@ -16,6 +16,7 @@ class RandomSum {
             for (int i = 0; i < 100; i++) {
                 sum += rand() % 1000;
             }
+            
             std::println("Thread #{}: sum = {}", threadId, sum);
         }
         int Sum() const {
